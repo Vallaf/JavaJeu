@@ -1,14 +1,11 @@
 package personnages;
 
-public class Guerrier {
-    public String name;
-    public int niveauVie; //Niveau de vie (5-10)
-    public int forceAttaque; //Force d’attaque (5-10)
-    public Armes armeGuerrier;
-    public String bouclier;
+public class Guerrier extends Personnage {
 
+    private Armes armeGuerrier;
+    private String bouclier;
 
-    public Guerrier() {
+    /*public Guerrier() {
 
     }
 
@@ -17,7 +14,6 @@ public class Guerrier {
     }
 
     public Guerrier(String name, int niveauVie, int forceAttaque, Armes armeGuerrier, String bouclier) {
-        // constructeur methode
         this.name = name;
         this.niveauVie = niveauVie;
         this.forceAttaque = forceAttaque;
@@ -25,12 +21,16 @@ public class Guerrier {
         this.bouclier = bouclier;
     }
 
+    public Guerrier(Armes armeGuerrier) {
+        this.armeGuerrier= armeGuerrier;
+    }
+*/
     public String toString() {
-        return "Nom guerrier : " + name + "\n" + "Niveau de vie : " + niveauVie + "\n" + "Force d'attaque : " + forceAttaque + "\n" + armeGuerrier + "\n" + "Type Bouclier : " + bouclier + "\n";
+        return "GUERRIER :" + "\n" + super.toString() + "\n" + armeGuerrier + "\n" ;
     }
 
     //Getters
-    public String getName() {
+    /*public String getName() {
         return name;
     }
 
@@ -54,15 +54,15 @@ public class Guerrier {
     public void setForceAttaque(int forceAttaque) {
         this.forceAttaque = forceAttaque;
     }
-
-    public String getBouclier() {
+*/
+    /*public String getBouclier() {
         return bouclier;
     }
 
     public void setBouclier(String bouclier) {
         this.bouclier = bouclier;
     }
-
+*/
     public Armes getArmeGuerrier() {
         return armeGuerrier;
     }

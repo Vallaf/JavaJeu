@@ -1,19 +1,20 @@
 package main;
 
-import personnages.Guerrier;
-import personnages.Magicien;
-import personnages.Armes;
-import personnages.Sorts;
+import personnages.*;
+
 
 import java.util.Scanner;
 
 public class Main {
 
-    private static Guerrier tableauGuerrier[] = new Guerrier[5];
-    private static Magicien tableauMagicien[] = new Magicien[5];
+    private static Personnage tableauPersonnage[] = new Personnage[5];
 
-    private static int indexGuerrier = 0;
-    private static int indexMagicien = 0;
+    // private static Guerrier tableauGuerrier[] = new Guerrier[5];
+    // private static Magicien tableauMagicien[] = new Magicien[5];
+
+    private static int indexPersonnage = 0;
+    // private static int indexGuerrier = 0;
+    // private static int indexMagicien = 0;
 
 
     private static String choix = "";
@@ -28,14 +29,22 @@ public class Main {
             menu();
             creerPerso();
             if (choix.equalsIgnoreCase("AFFICHER")) {
-            afficherTableauPerso();
+                afficherTableauPerso();
             }
 
         }
     }
 
     public static void afficherTableauPerso() {
-        for (int i = 0; i < tableauGuerrier.length; i++) {
+
+        for (int p = 0; p < tableauPersonnage.length; p++) {
+            if (tableauPersonnage[p] != null) {
+                System.out.println(tableauPersonnage[p]);
+            }
+        }
+
+
+        /*for (int i = 0; i < tableauGuerrier.length; i++) {
             if (tableauGuerrier[i] != null) {
                 System.out.println("GUERRIER : " + "\n" + tableauGuerrier[i]);
             }
@@ -47,6 +56,9 @@ public class Main {
                 System.out.println("MAGICIEN : " + "\n" + tableauMagicien[j]);
             }
         }
+        */
+
+
     }
 
     public static void menu() {
@@ -93,14 +105,17 @@ public class Main {
                 guerrier.setArmeGuerrier(armeGuerrier);
                 sc.nextLine();
 
-                System.out.println("Type Bouclier ? :");
+               /* System.out.println("Type Bouclier ? :");
                 String bouclier = sc.nextLine();
                 guerrier.setBouclier(bouclier);
-
+                */
                 System.out.println("Les caractéristiques de votre guerrier sont :" + "\n" + guerrier);
 
-                tableauGuerrier[indexGuerrier] = guerrier;
-                indexGuerrier++;
+                /*tableauGuerrier[indexGuerrier] = guerrier;
+                indexGuerrier++;*/
+
+                tableauPersonnage[indexPersonnage] = guerrier;
+                indexPersonnage++;
 
             } else {
                 Magicien magicien = new Magicien();
@@ -128,14 +143,18 @@ public class Main {
                 Sorts sortMagicien = new Sorts(nameSort, forceSort);
                 magicien.setSort(sortMagicien);
 
-                System.out.println("Philtre ? :");
+               /*System.out.println("Philtre ? :");
                 String philtre = sc.nextLine();
-                magicien.setPhiltre(philtre);
+                magicien.setPhiltre(philtre);*/
 
                 System.out.println("Les caractéristiques de votre magicien sont :" + "\n" + magicien);
 
-                tableauMagicien[indexMagicien] = magicien;
-                indexMagicien++;
+
+                tableauPersonnage[indexPersonnage] = magicien;
+                indexPersonnage++;
+
+               /* tableauMagicien[indexMagicien] = magicien;
+                indexMagicien++;*/
 
             }
 

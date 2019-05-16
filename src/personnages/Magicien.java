@@ -1,13 +1,11 @@
 package personnages;
 
-public class Magicien {
-    public String name;
-    public int niveauVie; // Niveau de vie (3-6)
-    public int forceAttaque; //Force d’attaque (8-15)
-    public Sorts sort;
-    public String philtre;
+public class Magicien extends Personnage {
 
-    public Magicien() {
+    private Sorts sort;
+    private String philtre;
+
+   /* public Magicien() {
 
     }
 
@@ -23,11 +21,13 @@ public class Magicien {
         this.philtre = philtre;
 
     }
+    */
+
     public String toString() {
-        return "Nom Magicien : " + name + "\n" + "Niveau de vie : " + niveauVie + "\n" + "Force d'attaque : " + forceAttaque + "\n" + sort + "\n" + "Type Philtre : " + philtre + "\n";
+        return "MAGICIEN :" + "\n" + super.toString() + "\n" + sort + "\n";
     }
     //Getters
-    public String getName() {
+   /* public String getName() {
         return name;
     }
 
@@ -52,7 +52,7 @@ public class Magicien {
     public void setForceAttaque(int forceAttaque) {
         this.forceAttaque = forceAttaque;
     }
-
+*/
     public Sorts getSort() {
         return sort;
     }
@@ -61,13 +61,13 @@ public class Magicien {
         this.sort = sort;
     }
 
-    public String getPhiltre() {
+   /* public String getPhiltre() {
         return philtre;
     }
 
     public void setPhiltre(String philtre) {
         this.philtre = philtre;
     }
-
+*/
 
 }
