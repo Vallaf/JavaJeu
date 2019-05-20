@@ -3,20 +3,15 @@ package personnages;
 public class Guerrier extends Personnage {
 
     private Armes armeGuerrier;
-    private String bouclier;
+   private String bouclier;
 
-    /*public Guerrier() {
+    public Guerrier() {
 
     }
 
-    public Guerrier(String name) {
-        this.name = name;
-    }
 
     public Guerrier(String name, int niveauVie, int forceAttaque, Armes armeGuerrier, String bouclier) {
-        this.name = name;
-        this.niveauVie = niveauVie;
-        this.forceAttaque = forceAttaque;
+        super(name,niveauVie,forceAttaque);
         this.armeGuerrier = armeGuerrier;
         this.bouclier = bouclier;
     }
@@ -24,7 +19,7 @@ public class Guerrier extends Personnage {
     public Guerrier(Armes armeGuerrier) {
         this.armeGuerrier= armeGuerrier;
     }
-*/
+
     public String toString() {
         return "GUERRIER :" + "\n" + super.toString() + "\n" + armeGuerrier + "\n" ;
     }
