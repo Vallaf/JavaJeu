@@ -19,6 +19,7 @@ public class Main {
 
 
     public static ArrayList<Personnage> persoList = new ArrayList();
+    public static ArrayList<String> plateau = new ArrayList();
 
     private static int indexPersonnage = -1;
     private static String choix = "";
@@ -28,8 +29,10 @@ public class Main {
 
 
         while (!choix.equalsIgnoreCase("QUITTER")) {
-//
+            plateauCreate(64);
+
             menu();
+
             choix = sc.nextLine();
             if (choix.equalsIgnoreCase("CREER")) {
                 createPerso();
@@ -39,7 +42,8 @@ public class Main {
                 deletePerso();
             } else if (choix.equalsIgnoreCase("MODIFIER")) {
                 modifyPerso();
-
+            } else if (choix.equalsIgnoreCase("RUN")) {
+                run();
             }
         }
     }
@@ -84,6 +88,7 @@ public class Main {
         System.out.println("Supprimer un personnage de la liste (SUPPRIMER) ?");
         System.out.println("Modifer des infos d'un personnage (MODIFIER) ?");
         System.out.println("Exit (QUITTER) ?");
+        System.out.println("Afficher plateau (RUN) ?");
     }
 
 
@@ -225,25 +230,52 @@ public class Main {
                 System.out.println("Le nom actuel du personnage est : " + persoList.get(indexPersonnage - 1).getName());
                 System.out.println("Entrez le nouveau nom de votre personnage : ");
                 sc.nextLine();
-                persoList.get(indexPersonnage-1).setName(sc.nextLine());
-                System.out.println("Nouveau nom " + persoList.get(indexPersonnage-1).getName());
+                persoList.get(indexPersonnage - 1).setName(sc.nextLine());
+                System.out.println("Nouveau nom " + persoList.get(indexPersonnage - 1).getName());
                 break;
             case 2:
-                System.out.println("Le niveau de vie du personnage est : " + persoList.get(indexPersonnage-1).getNiveauVie());
+                System.out.println("Le niveau de vie du personnage est : " + persoList.get(indexPersonnage - 1).getNiveauVie());
                 System.out.println("Entrez le nouveau niveau de vie de votre personnage : ");
                 sc.nextLine();
-                persoList.get(indexPersonnage-1).setNiveauVie(sc.nextInt());
-                System.out.println("Nouveau niveau de vie " + persoList.get(indexPersonnage-1).getNiveauVie());
+                persoList.get(indexPersonnage - 1).setNiveauVie(sc.nextInt());
+                System.out.println("Nouveau niveau de vie " + persoList.get(indexPersonnage - 1).getNiveauVie());
                 break;
             case 3:
-                System.out.println("La force d'attaque  actuelle du personnage est : " + persoList.get(indexPersonnage-1).getForceAttaque());
+                System.out.println("La force d'attaque  actuelle du personnage est : " + persoList.get(indexPersonnage - 1).getForceAttaque());
                 System.out.println("Entrez la nouvelle force d'attaque de votre personnage : ");
                 sc.nextLine();
-                persoList.get(indexPersonnage-1).setForceAttaque(sc.nextInt());
-                System.out.println("Nouvelle force d'attaque " + persoList.get(indexPersonnage-1).getForceAttaque());
+                persoList.get(indexPersonnage - 1).setForceAttaque(sc.nextInt());
+                System.out.println("Nouvelle force d'attaque " + persoList.get(indexPersonnage - 1).getForceAttaque());
                 break;
         }
     }
+
+    public static void plateauCreate(int size) {
+        for (int i = 0; i < size; i++) {
+            int randomCase = (int) (Math.random() * (3 - 1)) + 1;
+            switch (randomCase) {
+                case 1:
+                    plateau.add("Ennemi");
+                    break;
+                case 2:
+                    plateau.add("Bonus");
+                    break;
+                case 3:
+                    plateau.add("Neutre");
+                    break;
+            }
+        }
+
+
+    }
+    public static void run(){
+        int i = 1;
+        for (String cases : plateau){
+            System.out.println("Case N° "+ i + " " + cases);
+            i++;
+        }
+    }
+
 }
 
 
