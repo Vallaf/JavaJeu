@@ -37,8 +37,10 @@ public class Main {
                 displayListePerso();
             } else if (choix.equalsIgnoreCase("SUPPRIMER")) {
                 deletePerso();
-            }
+            } else if (choix.equalsIgnoreCase("MODIFIER")) {
+                modifyPerso();
 
+            }
         }
     }
 
@@ -47,7 +49,7 @@ public class Main {
         int p = 0;
         for (Personnage perso : persoList) {
             p++;
-            System.out.println(p + " " + perso);
+            System.out.println(p + "|" + perso);
 
         }
         /*if (choix.equalsIgnoreCase("AFFICHER")) {
@@ -194,9 +196,54 @@ public class Main {
     }
 
     public static void modifyPerso() {
+        displayListePerso();
+
+
+        System.out.println("Quel personnage voulez-vous modifier ? (CHOISIR LE NUMERO DU PERSO A MODIFIER)");
+
+        indexPersonnage = sc.nextInt();
+
+        System.out.println(persoList.get(indexPersonnage - 1));
+        sc.nextLine();
+
+        modificationMenu(indexPersonnage);
 
     }
 
+
+    public static void modificationMenu(int indexPersonnage) {
+
+        System.out.println("1- MODIFIER LE NOM DU PERSONNAGE");
+        System.out.println("2- MODIFIER LE NIVEAU DE VIE DU PERSONNAGE");
+        System.out.println("3- MODIFIER LA FORCE D'ATTAQUE DU PERSONNAGE");
+        System.out.println("ENTREZ LE NUMERO DE VOTRE CHOIX");
+
+        int numeroModif = sc.nextInt();
+
+        switch (numeroModif) {
+            case 1:
+                System.out.println("Le nom actuel du personnage est : " + persoList.get(indexPersonnage - 1).getName());
+                System.out.println("Entrez le nouveau nom de votre personnage : ");
+                sc.nextLine();
+                persoList.get(indexPersonnage-1).setName(sc.nextLine());
+                System.out.println("Nouveau nom " + persoList.get(indexPersonnage-1).getName());
+                break;
+            case 2:
+                System.out.println("Le niveau de vie du personnage est : " + persoList.get(indexPersonnage-1).getNiveauVie());
+                System.out.println("Entrez le nouveau niveau de vie de votre personnage : ");
+                sc.nextLine();
+                persoList.get(indexPersonnage-1).setNiveauVie(sc.nextInt());
+                System.out.println("Nouveau niveau de vie " + persoList.get(indexPersonnage-1).getNiveauVie());
+                break;
+            case 3:
+                System.out.println("La force d'attaque  actuelle du personnage est : " + persoList.get(indexPersonnage-1).getForceAttaque());
+                System.out.println("Entrez la nouvelle force d'attaque de votre personnage : ");
+                sc.nextLine();
+                persoList.get(indexPersonnage-1).setForceAttaque(sc.nextInt());
+                System.out.println("Nouvelle force d'attaque " + persoList.get(indexPersonnage-1).getForceAttaque());
+                break;
+        }
+    }
 }
 
 
